@@ -1,11 +1,24 @@
-import React from 'react';
-import { ASDMedia } from '@alliance-software-development/asd-media-react';
+import React, { FC } from 'react';
+import classNames from 'classnames';
+import { Widget } from '@uploadcare/react-widget';
 import { Close } from '../../assets/close';
 import { Checkmark } from '../../assets/checkmark';
 import loader from '../../assets/loader.gif';
 import '../../wrapper.css';
 
-export const EditableWrapper = (props) => {
+interface EditableWrapperProps {
+  children: any;
+  sectionId: string;
+  data: any;
+  sectionName: string;
+  isImage?: boolean;
+  isValidated?: boolean;
+  uploadCareKey?: string;
+  handleFinishEditing?: (id: string, data: any) => void;
+  className?: string;
+}
+
+export const EditableWrapper: FC<EditableWrapperProps> = (props) => {
   const {
     children,
     sectionId,
@@ -17,7 +30,7 @@ export const EditableWrapper = (props) => {
     handleFinishEditing,
     className,
   } = props;
-  const parent = React.useRef(null);
+  const parent = React.useRef<any>(null);
 
   const [editing, setEditing] = React.useState({ edit: false, close: false });
   const [loading, setLoading] = React.useState(false);
@@ -25,7 +38,7 @@ export const EditableWrapper = (props) => {
     setEditing({ edit: true, close: true });
   };
 
-  const finishEditing = async (imgurl) => {
+  const finishEditing = async (imgurl?: string | any) => {
     showLoader(true);
 
     // edit API call
@@ -74,7 +87,7 @@ export const EditableWrapper = (props) => {
     showLoader(false);
   };
 
-  const showLoader = (loading) => {
+  const showLoader = (loading: boolean) => {
     if (loading) {
       setEditing({ edit: true, close: false });
       setLoading(true);
@@ -84,7 +97,7 @@ export const EditableWrapper = (props) => {
     }
   };
 
-  const onBlur = (e) => {
+  const onBlur = (e: any) => {
     const leavingParent = !parent?.current?.contains(e.relatedTarget);
 
     if (leavingParent && editing.edit) {
@@ -96,18 +109,16 @@ export const EditableWrapper = (props) => {
 
   return (
     <div
-      className={`asd-media-wrapper__editable_wrapper${
-        className ? ` ${className}` : ''
-      }`}
+      className={classNames('editable_wrapper', className)}
       onBlur={onBlur}
       tabIndex={-1}
       ref={parent}
     >
       <>
         <div
-          className={`asd-media-wrapper__editable_wrapper__edit_button${
-            editing.edit ? ' edit' : ''
-          }`}
+          className={classNames('editable_wrapper__edit_button', {
+            edit: editing.edit,
+          })}
         >
           {editing.close && (
             <button onClick={finishEditing}>
@@ -151,7 +162,16 @@ export const EditableWrapper = (props) => {
   );
 };
 
-const ImageSection = ({
+interface ImageSectionProps {
+  sectionName: string;
+  sectionId: string;
+  children: any;
+  showLoader: (loading: boolean) => void;
+  finishEditing: (imgurl?: string | any) => void;
+  uploadCareKey?: string;
+}
+
+const ImageSection: FC<ImageSectionProps> = ({
   sectionName,
   sectionId,
   children,
@@ -159,7 +179,7 @@ const ImageSection = ({
   finishEditing,
   uploadCareKey,
 }) => {
-  const asdMediaRef = React.useRef();
+  const mediaRef = React.useRef<any>();
 
   const translation = {
     buttons: {
@@ -171,15 +191,15 @@ const ImageSection = ({
     },
   };
 
-  const handleFileSelect = (file) => {
+  const handleFileSelect = () => {
     showLoader(true);
   };
 
   const handleClick = () => {
-    asdMediaRef.current?.openDialog();
+    mediaRef.current?.openDialog();
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: any) => {
     finishEditing(e.cdnUrl);
   };
 
@@ -196,17 +216,17 @@ const ImageSection = ({
         tabIndex: -1,
       })}
 
-      <ASDMedia
-        // @ts-ignore
-        ref={asdMediaRef}
-        publicKey={uploadCareKey}
+      <Widget
+        crop="free, 16:9, 4:3, 5:4, 1:1"
+        publicKey={uploadCareKey as string}
+        clearable
+        ref={mediaRef}
+        onFileSelect={handleFileSelect}
         onChange={handleChange}
         onDialogClose={handleDialogClose}
         localeTranslations={translation}
         imagesOnly
         previewStep
-        onFileSelect={handleFileSelect}
-        clearable
       />
     </>
   );

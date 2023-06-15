@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export const Close = ({ className }) => (
+export const Close: FC<{
+  className?: string;
+}> = ({ className }) => (
   <svg
     stroke="currentColor"
     fill="currentColor"

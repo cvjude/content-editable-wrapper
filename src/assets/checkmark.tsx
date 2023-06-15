@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { FC } from 'react';
 
-export const Checkmark = ({ className }) => {
+export const Checkmark: FC<{
+  className?: string;
+}> = ({ className }) => {
   return (
     <svg
       version="1.1"
