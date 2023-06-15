@@ -89,6 +89,55 @@ export const getPageData = () =>  {
 
 ```
 
+#### `sectionId: string`
+
+data-key for actual data in the elements, `data.content[data-key]`
+<br>
+
+#### `data: any`
+
+structure
+
+```
+{
+  id: any,
+  resource: string, // like app name or website name
+  page: string, // 😑 page name
+  type: string, // sectionName
+  content: {
+    [any-key]: any //sectionId
+  }
+}
+```
+
+<br>
+
+#### `isValidated: boolean`
+
+Allow the data to be edited
+<br>
+
+#### `sectionName: string`
+
+Html section name
+<br>
+
+#### `sectionId: string`
+
+Html section Id
+<br>
+
+#### `isImage: string`
+
+If it's an Image
+<br>
+
+#### `uploadCareKey: string`
+
+The image edit section is built on upload care, for now.
+https://github.com/uploadcare/react-widget
+<br>
+
 ## Author
 
 👤 **Chinoso Jude**
