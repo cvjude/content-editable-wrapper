@@ -1,0 +1,53 @@
+{
+  "devDependencies": {
+    "@alliance-software-development/asd-media-react": "^1.0.1",
+    "@babel/core": "^7.18.9",
+    "@babel/preset-react": "^7.18.6",
+    "@rollup/plugin-image": "^2.1.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/addon-interactions": "^6.5.9",
+    "@storybook/addon-links": "^6.5.9",
+    "@storybook/builder-webpack4": "^6.5.9",
+    "@storybook/manager-webpack4": "^6.5.9",
+    "@storybook/react": "^6.5.9",
+    "@storybook/testing-library": "^0.0.13",
+    "axios": "^0.27.2",
+    "babel-loader": "^8.2.5",
+    "postcss": "^8.4.18",
+    "rollup": "^2.77.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2"
+  },
+  "name": "@alliance-software-development/asd-content-editable-wrapper",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "peerDependencies": {
+    "@alliance-software-development/asd-media-react": "^1.0.1",
+    "axios": "^0.27.2",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "build-lib": "rollup -c"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imaginationeverywhere/content-editable-wrapper.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/imaginationeverywhere/content-editable-wrapper/issues"
+  },
+  "homepage": "https://github.com/imaginationeverywhere/content-editable-wrapper#readme",
+  "description": "![Version](https://img.shields.io/badge/node->14.0.0-blue.svg?cacheSeconds=2592000) ![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg) ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)"
+}

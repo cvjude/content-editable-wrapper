@@ -1,0 +1,52 @@
+.asd-media-wrapper__editable_wrapper {
+  position: relative;
+}
+
+.asd-media-wrapper__editable_wrapper__edit_button {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  top: 0;
+  visibility: hidden;
+  background: white;
+  mix-blend-mode: difference;
+  padding: 5px;
+  backdrop-filter: blur(2px);
+  z-index: 10;
+}
+
+.asd-media-wrapper__editable_wrapper__edit_button.edit {
+  opacity: 1;
+  top: -40px;
+  visibility: visible;
+}
+
+.asd-media-wrapper__editable_wrapper__edit_button button svg {
+  width: 15px;
+  height: 15px;
+}
+
+.asd-media-wrapper__editable_wrapper__edit_button button.close svg {
+  width: 30px;
+  height: 30px;
+}
+
+.asd-media-wrapper__editable_wrapper__edit_button svg {
+  width: 30px;
+  height: 30px;
+  fill: #000;
+  cursor: pointer;
+}
+
+.asd-media-wrapper__editable_wrapper .uploadcare--widget {
+  display: none;
+}
+
+.asd-media-wrapper__editable_wrapper button {
+  background: transparent;
+  outline: none;
+  border: none;
+}
