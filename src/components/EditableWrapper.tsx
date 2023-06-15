@@ -1,10 +1,11 @@
 import React, { FC } from 'react';
-import classNames from 'classnames';
-import { Widget } from '@uploadcare/react-widget';
-import { Close } from '../../assets/close';
-import { Checkmark } from '../../assets/checkmark';
-import loader from '../../assets/loader.gif';
-import '../../wrapper.css';
+import { Close } from '../assets/close';
+import { Checkmark } from '../assets/checkmark';
+import loader from '../assets/loader.gif';
+import '../wrapper.scss';
+
+const classNames = require('classnames');
+const { Widget } = require('@uploadcare/react-widget');
 
 interface EditableWrapperProps {
   children: any;

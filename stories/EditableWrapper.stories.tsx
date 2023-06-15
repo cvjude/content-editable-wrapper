@@ -8,6 +8,16 @@ export default {
 
 export const Default = {
   render: () => {
+    const data = {
+      id: '4c722eab-31ab-406b-8e6b-7f5a76dadf89',
+      resource: 'my-website',
+      page: 'Home Page',
+      type: 'banner',
+      content: {
+        sub_header: 'Connecting dots one lead at a time.',
+      },
+    };
+
     return (
       <div
         style={{
@@ -17,27 +27,16 @@ export const Default = {
       >
         <EditableWrapper
           isValidated
-          sectionName="test"
+          sectionName="banner"
           sectionId="sub_header"
-          data={{
-            id: '4c722eab-31ab-406b-8e6b-7f5a76dadf89',
-            resource: 'quik-influence',
-            page: 'Home Page',
-            type: 'footer',
-            content: {
-              sub_header: 'Connecting dots one lead at a time.',
-              header: 'Ready to find your next audience with us?',
-              header_desc:
-                'No matter the size of the project, Quik Influence can create a custom service plan for you! And with access to leads in a seeminly limitless field of industries and niches, it’s no wonder we’re the go to for CRM needs.',
-            },
-          }}
+          data={data}
         >
           <h1
             style={{
               padding: '10px',
             }}
           >
-            Connecting dots one lead at a time.
+            {data.content.sub_header}
           </h1>
         </EditableWrapper>
       </div>
@@ -47,6 +46,16 @@ export const Default = {
 
 export const Image = {
   render: () => {
+    const data = {
+      id: '4c722eab-31ab-406b-8e6b-7f5a76dadf89',
+      resource: 'my-website',
+      page: 'Home Page',
+      type: 'banner',
+      content: {
+        img_url: 'Connecting dots one lead at a time.',
+      },
+    };
+
     return (
       <div
         style={{
@@ -59,21 +68,10 @@ export const Image = {
           sectionName="test"
           sectionId="sub_header"
           isImage
-          data={{
-            id: '4c722eab-31ab-406b-8e6b-7f5a76dadf89',
-            resource: 'quik-influence',
-            page: 'Home Page',
-            type: 'footer',
-            content: {
-              sub_header: 'Connecting dots one lead at a time.',
-              header: 'Ready to find your next audience with us?',
-              header_desc:
-                'No matter the size of the project, Quik Influence can create a custom service plan for you! And with access to leads in a seeminly limitless field of industries and niches, it’s no wonder we’re the go to for CRM needs.',
-            },
-          }}
+          data={data}
         >
           <img
-            src="https://ucarecdn.com/6930354f-a355-4787-b586-edb494a224f2/"
+            src={data.content.img_url}
             style={{
               width: '500px',
             }}

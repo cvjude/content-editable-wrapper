@@ -2,7 +2,7 @@
 
 ![Version](https://img.shields.io/badge/node->14.0.0-blue.svg?cacheSeconds=2592000) ![Documentation](https://img.shields.io/badge/documentation-yes-brightgreen.svg) ![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
 
-> This is project was built to be an editable wrapper for all homepages in ASD. It takes care of sending the data for that section to the API, and can also encapsulate an image.
+> This is project was built to be an editable wrapper for any html tag. It takes care of sending the data for that section to the API, and can also encapsulate an image.
 
 ### 🏠 [Homepage](https://github.com/cvjude/content-editable-wrapper/tree/main)
 
@@ -19,7 +19,7 @@ npm install --save-dev content-editable-wrapper
 
 ## Usage
 
-```sh
+```jsx
 import { EditableWrapper } from 'content-editable-wrapper'
 import { useState, useEffect } from 'react'
 import { getPageData } from 'dispatchable-actions'
@@ -44,7 +44,7 @@ const Homepage = () => {
           <EditableWrapper
             data={pageData}
             sectionId="header"
-            sectionName="banner_header"
+            sectionName="banner"
             handleFinishEditing={handleFinishEditing}
            >
             <h1>
@@ -55,7 +55,7 @@ const Homepage = () => {
           <EditableWrapper
             data={pageData}
             sectionId="image"
-            sectionName="banner_header"
+            sectionName="banner"
             isImage
             padding="20px"
             handleFinishEditing={handleFinishEditing}
@@ -70,14 +70,21 @@ const Homepage = () => {
     </>
   )
 }
+```
 
---- dispatchable-actions.js ---
+```jsx
+//--- dispatchable-actions.js ---
 export const getPageData = () =>  {
-    content: {
-        header: "This is the end",
-        image: "url"
-    },
-    id: 'data-id'
+    return {
+      resource: 'My website',
+      page: 'Home Page,
+      type: 'banner', //SectionName,
+      content: {
+          header: "This is the end", //sectionId
+          image: "url" //sectionId
+      },
+      id: 'data-id'
+    }
 }
 
 ```
